@@ -25,6 +25,29 @@ class Item(BaseModel):
     price: float
     tax: Union[float, None] = None
 
+    #  用例  额外信息
+    model_config = {
+        "json_schema_extra": {
+            "examples": [
+                {
+                    "name": "易安祺",
+                    "nameDetails": {
+                        "sex": "男",
+                        "age": 18,
+                        "email": "1975941469@qq.com",
+                        "url": "https://www.4399.com/"
+                    },
+                    "description": "string",
+                    "price": 9.99,
+                    "tax": 1.00
+                }
+            ]
+        }
+    }
+
+
+
+
 
 @app.get("/")
 async def main():
